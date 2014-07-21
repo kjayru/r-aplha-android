@@ -133,6 +133,25 @@ var contexto = Ti.UI.createView({
 		zIndex:21
 	});
 	
+	var social = require('social_plus');
+
+	//Create a Twitter client for this module
+	var twitter = social.create({
+		consumerSecret : Ti.App.Properties.getString('twitter.consumerSecret'),
+		consumerKey : Ti.App.Properties.getString('twitter.consumerKey')
+	});
+btnTwitter.addEventListener('click',function(e){
+	twitter.shareImage({
+		message : "Test de comparticion de aplicacion.",
+		image : (Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "KS_nav_ui.png")).read(),
+		success : function() {
+			alert('Tweeted!');
+		},
+		error : function() {
+			alert('ERROR Tweeted!');
+		}
+	});
+});
 	var texto1 = Ti.UI.createLabel({
 		text:'¡Elige otro desafio! y gana mas puntos! Comparte la aplicación y gana un punto extra.',
 		width:230,

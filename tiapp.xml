@@ -6,6 +6,8 @@
     <property name="acs-oauth-secret-development" type="string">P1s4AaktISEsDSsHJmuyzSv8s0Oe6MWR</property>
     <property name="acs-oauth-key-development" type="string">tZp67R9rRRYQweEjSV0gEOEHfQ997Mmq</property>
     <property name="acs-api-key-development" type="string">43Bgsdly3HkQ0Z82gmTSCRk8yOZqKsCP</property>
+    <property name="twitter.consumerKey">coBnKm3xIP9hBCNk2DULATVcb</property>
+    <property name="twitter.consumerSecret">cGJwyxOnuJn4hKFqyiI3zQ69spCdrHJtSfJjbuKgmfxiI3Mj9o</property>
     <id>com.retoalpha</id>
     <name>Reto ALPHA</name>
     <version>1.0</version>
