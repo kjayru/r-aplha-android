@@ -1,7 +1,6 @@
 //FirstView Component Constructor
 function FirstView() {
 	//create object instance, a parasitic subclass of Observable
-
 	var scroll = Ti.UI.createScrollView({
 		top:1,
 		width:"95%",
@@ -9,6 +8,13 @@ function FirstView() {
 		scrollType:'vertical'
 	});
 	
+	var pop = Ti.UI.createView({
+		background:"#333",
+		width:"100%",
+		height:"100%",
+		zIndex:100
+		});
+
 	var self = Ti.UI.createView({
 		backgroundImage:"/assets/fondo2.png",
 		zIndex:1
@@ -30,7 +36,6 @@ function FirstView() {
 		width:250,
 		height:106
 	});
-
 	//label using localization-ready strings from <app dir>/i18n/en/strings.xml
 	var label = Ti.UI.createLabel({
 		color:'#000000',
@@ -172,12 +177,7 @@ var activityIndicator = Ti.UI.createActivityIndicator({
     borderWidth : 1
 });
 
-
-	
-
 	btnIngreso.addEventListener('click',function(){
-		
-		
 		if(!Titanium.API.year){
 			var alertDialog = Titanium.UI.createAlertDialog({
 				    title: 'Información',
@@ -238,7 +238,7 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 	scroll.add(textTerminos);
 	self.add(scroll);
 	self.add(activityIndicator);
-   
+    self.add(pop);
 
 	//Add behavior for UI
 

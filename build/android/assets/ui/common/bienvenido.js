@@ -140,11 +140,13 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 					var Preguntas = require('/ui/common/preguntas');
 	  				preguntas = new Preguntas();
 	  				preguntas.open();
-	  				}else{
+	  				}
+					if(getdata.registro=="no"){
 	  				 var Opciones = require('/ui/common/opciones');
 	  				 	opciones = new Opciones();
 	  				 	opciones.open();
 	  				}
+	  				
   				}
   			}
 		}

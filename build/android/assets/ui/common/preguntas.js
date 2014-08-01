@@ -290,8 +290,8 @@ activityIndicator.show();
 							zIndex:10,
 							left:-10,
 							top:190,
-							width:103,
-							height:143
+							width:120,
+							height:120
 						});	
 			    lblItem.add(lblTexto);
 			    scroll.add(lblItem);

@@ -1,5 +1,5 @@
 //FirstView Component Constructor
-function FirstView() {
+function selector() {
 	//create object instance, a parasitic subclass of Observable
 	var scroll = Ti.UI.createScrollView({
 		top:1,
@@ -9,13 +9,13 @@ function FirstView() {
 	});
 	
 	var pop = Ti.UI.createView({
-		background:"#333",
+		backgroundColor:"#333",
 		width:"100%",
 		height:"100%",
 		zIndex:100
 		});
 
-	var self = Ti.UI.createView({
+	var self = Ti.UI.createWindow({
 		backgroundImage:"/assets/fondo2.png",
 		zIndex:1
 	});
@@ -245,4 +245,4 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 	return self;
 }
 
-module.exports = FirstView;
+module.exports = selector;
