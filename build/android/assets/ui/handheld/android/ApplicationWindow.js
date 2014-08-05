@@ -1,8 +1,6 @@
 //Application Window Component Constructor
 function ApplicationWindow() {
 	//load component dependencies
-	var FirstView = require('ui/common/FirstView');
-
 	//create component instance
 	var self = Ti.UI.createWindow({
 		backgroundImage:"/assets/fondo.jpg",
@@ -49,22 +47,14 @@ if(Titanium.Network.online){
 			        var getdata = JSON.parse(this.responseText);
 			        Titanium.API.nivel = getdata.level;
 			        niveles = Titanium.API.nivel;	
-			        if(getdata.registro=="registra"){	
-				
-						var firstView = new FirstView();
-						self.add(firstView);									
-			 }else{	 
+			       
 			 	   
 			 			Titanium.API.nivel = getdata.level;	
-						/*
-						var Bienvenida = require('/ui/common/bienvenido');
-						var bienvenida = new Bienvenida();
-						bienvenida.open();	
-						*/
+						
 						var Presentacion = require("/ui/common/presentacion");
 						var presentacion = new Presentacion();
 						presentacion.open();
-				    }
+				    
 			     },
 			     // function called when an error occurs, including a timeout
 			     onerror : function(e) {

@@ -238,7 +238,7 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 	scroll.add(textTerminos);
 	self.add(scroll);
 	self.add(activityIndicator);
-    self.add(pop);
+//    self.add(pop);
 
 	//Add behavior for UI
 

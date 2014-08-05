@@ -15,6 +15,10 @@ function ganaste(){
         exitOnClose:true,
         navBarHidden:true
 	});
+	
+ var Menu = require("/ui/common/menu");
+ 	 menu = new Menu();
+ 	 self.add(menu);
 	var logoFooter = Ti.UI.createView({
 		backgroundImage:"/assets/logofooter.png",
 		zIndex:10,

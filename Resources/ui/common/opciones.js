@@ -150,11 +150,12 @@ var txtCorreo = Ti.UI.createTextField({
   borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
   color: '#336699',
   top: 330, 
-  width: 200, height: 37,
+  width: 200, height: 40,
   backgroundColor:'#ffffff',
   hintText:"Ingrese su correo",
-  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
-  keyboardType:Ti.UI.KEYBOARD_EMAIL
+  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:24},
+  keyboardType:Ti.UI.KEYBOARD_EMAIL,
+  zIndex:999
 });
 
 self.addEventListener('click',function(e){
@@ -182,7 +183,7 @@ fb.addEventListener('login', function(e) {
 	    }
 	});
 });
-
+//require("/ui/common/menu");
 	scroll.add(logo);
 	scroll.add(txtCorreo);
 	scroll.add(texto1);

@@ -1,0 +1,23 @@
+{
+	"target": "simulator",
+	"deployType": "development",
+	"deviceFamily": "iphone",
+	"iosSdkPath": "/Users/Wile_Tinoco/Library/Application Support/Titanium/mobilesdk/osx/3.2.3.GA/iphone",
+	"tiCoreHash": "77157e1ffaec640cf559356a147b6a4c",
+	"modulesHash": "c71edc45cdd3d842e835255e1a54f347",
+	"modulesNativeHash": "39dffd5c15df4f69b6fe63bc978e3b58",
+	"gitHash": "b958a70",
+	"name": "Reto ALPHA",
+	"id": "com.retoalpha",
+	"analytics": true,
+	"publisher": "Wile_Tinoco",
+	"url": "http://productosalpha.com.pe",
+	"version": "1.0",
+	"description": "not specified",
+	"copyright": "2014 by Wile_Tinoco",
+	"guid": "e0fb27db-b48f-47e4-8831-5562a2fefcea",
+	"skipJSMinification": true,
+	"forceCopy": false,
+	"forceCopyAll": false,
+	"encryptJS": false
+}
