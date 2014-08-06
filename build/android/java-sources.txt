@@ -1,6 +1,0 @@
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/ApplicationStylesheet.java"
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/AssetCryptImpl.java"
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/R.java"
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/RetoAlphaActivity.java"
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/RetoAlphaAppInfo.java"
-"/Users/Wile_Tinoco/Documents/Titanium_Studio_Workspace/r-aplha-android/build/android/gen/com/retoalpha/RetoAlphaApplication.java"

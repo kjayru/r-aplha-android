@@ -236,9 +236,9 @@ activityIndicator.show();
 												
 												var client3 = Ti.Network.createHTTPClient({
 													onload:function(e){
-														var mdata = JSON.parse(this.responseText);
+														var getDataFile = JSON.parse(this.responseText);
 														if(this.status==200){
-															for(j=0; j<3; j++){
+															/*for(j=0; j<3; j++){
 																if(mdata[j].canjeados==100){
 																	Titanium.API.premio1='100';
 																}
@@ -248,8 +248,9 @@ activityIndicator.show();
 																if(mdata[j].canjeados==450){
 																	Titanium.API.premio1='450';
 																}
-															}
-															if(mdata.puntos=="premio100"){
+															
+															}*/alert(this.responseText);
+															/*if(mdata.puntos=="premio100"){
 																alert("tienes un premio de 100 para canjear");
 															}
 															if(mdata.puntos=="premio200"){
@@ -257,11 +258,11 @@ activityIndicator.show();
 															}
 															if(mdata.puntos=="premio450"){
 																alert("tienes un premio de 450 para canjear");
-															}else{
+															}if(mdata.puntos=="sinpremio"){
 																var Ganaste = require('/ui/common/ganaste');
 															    ganaste = new Ganaste();
 															    ganaste.open(); 
-															}
+															}*/
 														}	
 														
 													}

@@ -226,16 +226,52 @@ activityIndicator.show();
 										  
 										  
 										    if(this.status==200){
-									     	
-									     		var Ganaste = require('/ui/common/ganaste');
-											    ganaste = new Ganaste();
-											    ganaste.open(); 
+////////////////////////////// consulta de puntaje //////////////////////////////////////////    	
+											
+											var url3 = "http://productosalpha.com.pe/webservice/premios.php";
+												var params3 = {
+													'idmobile': Ti.Platform.id,
+													'id_preg' : Titanium.API.itemId
+												};
+												
+												var client3 = Ti.Network.createHTTPClient({
+													onload:function(e){
+														var getDataFile = JSON.parse(this.responseText);
+														if(this.status==200){
+															/*for(j=0; j<3; j++){
+																if(mdata[j].canjeados==100){
+																	Titanium.API.premio1='100';
+																}
+																if(mdata[j].canjeados==200){
+																	Titanium.API.premio2='200';
+																}
+																if(mdata[j].canjeados==450){
+																	Titanium.API.premio1='450';
+																}
+															
+															}*/alert(this.responseText);
+															/*if(mdata.puntos=="premio100"){
+																alert("tienes un premio de 100 para canjear");
+															}
+															if(mdata.puntos=="premio200"){
+																alert("tienes un premio de 200 para canjear");
+															}
+															if(mdata.puntos=="premio450"){
+																alert("tienes un premio de 450 para canjear");
+															}if(mdata.puntos=="sinpremio"){
+																var Ganaste = require('/ui/common/ganaste');
+															    ganaste = new Ganaste();
+															    ganaste.open(); 
+															}*/
+														}	
+														
+													}
+												});
+												client3.open("POST",url3);
+												client3.send(params3);
 									     }
-									     		
-									     			
 								 	}
-								 });
-							   
+								 });							   
 							   	 client2.open("POST", url2);
 								 client2.send(params2);  
 					   }else{
@@ -304,17 +340,11 @@ activityIndicator.show();
 			},
 		     onerror : function(e) {
 		         Ti.API.debug("Perdiste Conexión a internet");
-		       
-		     }
-		     
+		     } 
 	 	 });
   	
-  	 clientes.open("POST", uri);
-	clientes.send(parametros);  
-		
-	
-
-
+clientes.open("POST", uri);
+clientes.send(parametros);  
 	
 	var contenedor = Ti.UI.createView({
 		width:290,

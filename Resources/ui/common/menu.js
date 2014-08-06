@@ -1,6 +1,6 @@
 ///vista para menu
 function menu(){
-	var self = Ti.UI.currentWindow();
+	
 	var lienzo = Ti.UI.createView({
 		backgroundColor:"#183345",
 		width:300,
