@@ -27,7 +27,6 @@ function menu(){
 		top:0,
 		left:40,
 		color:"#ffffff",
-
 		 font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
 		zIndex:1
 	});

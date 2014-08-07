@@ -25,13 +25,13 @@ function ganaste(){
 		left:5,
 		zIndex:130
 	}); 
-menuGen.addEventListener('click',function(){
-	lienzo.animate(
-    {
-      left:0,
-      duration:350});
-   
-});								    
+	menuGen.addEventListener('click',function(){
+		lienzo.animate(
+	    {
+	      left:0,
+	      duration:350});
+	   
+	});								    
 	
 var lienzo = Ti.UI.createView({
 		backgroundColor:"#183345",
@@ -475,17 +475,39 @@ function premios(){
 															
 															 }
 															}
-															if(midata.puntos=="premio100"){
-																alert("tienes un premio de 100 para canjear");
+															Ti.API.info(midata.premio);
+															if(midata.premio=="premio100"){
+																var alertDialog = Titanium.UI.createAlertDialog({
+															    title: 'Tienes un premio',
+															    message: 'Ve al menu y revisa tus logros',
+															    buttonNames: ['Continuar'],
+															    cancel: 1
+																});
+																alertDialog.show();
+															    return false;
 															}
-															if(midata.puntos=="premio200"){
-																alert("tienes un premio de 200 para canjear");
+															if(midata.premio=="premio200"){
+																var alertDialog = Titanium.UI.createAlertDialog({
+															    title: 'Tienes dos premios Acumulados',
+															    message: 'Ve al menu y revisa tus logros',
+															    buttonNames: ['Continuar'],
+															    cancel: 1
+																});
+																alertDialog.show();
+															    return false;
 															}
-															if(midata.puntos=="premio450"){
-																alert("tienes un premio de 450 para canjear");
-															}if(midata.premio=="sinpremio"){
-																alert("data: "+JSON.stringify(midata));
-																alert("puntos: "+midata.puntos);
+															if(midata.premio=="premio450"){
+																																var alertDialog = Titanium.UI.createAlertDialog({
+															    title: 'Tienes el premio Mayor',
+															    message: 'Ve al menu y reclama tu premio',
+															    buttonNames: ['Continuar'],
+															    cancel: 1
+																});
+																alertDialog.show();
+															    return false;
+
+															}
+															 if(midata.premio=="sinpremio"){
 																
 																
 															}
