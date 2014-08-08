@@ -677,6 +677,12 @@ var activity = Titanium.Android.currentActivity;
 
 });
 
+scroll.addEventListener('click',function(){
+	lienzo.animate(
+    {
+      left:-300,
+      duration:350});
+});
 
 self.add(menuGen);
 	scroll.add(logoFooter);

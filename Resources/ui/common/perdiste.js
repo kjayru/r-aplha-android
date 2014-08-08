@@ -259,7 +259,7 @@ var lienzo = Ti.UI.createView({
 	
 
 	var btnRegistro = Ti.UI.createButton({
-		top: 470,
+		top: 385,
 		width:250,
 		height:40,
 		backgroundColor:'#37ade2',
@@ -274,7 +274,7 @@ var lienzo = Ti.UI.createView({
 	});
 	
 	var btnIntento = Ti.UI.createButton({
-		top: 425,
+		top: 330,
 		width:250,
 		height:40,
 		backgroundColor:'#37ade2',
@@ -541,18 +541,289 @@ btnFacebook.addEventListener('click',function(){
 			});
 					
 });
-    contexto.add(texto1);
-    contexto.add(btnFacebook);
-    contexto.add(btnTwitter);
+scroll.addEventListener('click',function(){
+	lienzo.animate(
+    {
+      left:-300,
+      duration:350});
+});
+
+
+/////// eventos para el menu
+btn01.addEventListener('click',function(){
+///puntaje
+   var xurl = "http://productosalpha.com.pe/webservice/puntos.php";
+   var envios = ({
+   	'idmobile':Ti.Platform.id
+   });
+   var misPuntos = Ti.Network.createHTTPClient({
+  	onload: function(e){
+  		data = JSON.parse(this.responseText);
+  		var alertPuntaje = Ti.UI.createAlertDialog({
+ 		title:'Puntos Ganados',
+ 		message:"Tienes "+ data.puntos +" puntos acomulados",
+ 		buttonNames:['Ok']
+ 	});
+ 	alertPuntaje.show();
+ 	return false;
+  	}
+  });
+  misPuntos.open("POST",xurl);
+  misPuntos.send(envios);
+});
+
+btn02.addEventListener('click',function(){
+ ///aprende a jugar
+});
+
+btn03.addEventListener('click',function(){
+////premios
+	var popup = Ti.UI.createView({
+		backgroundImage:"/assets/overflow.png",
+		width:"100%",
+		height:"100%",
+		zIndex:999,
+		top:0,
+		left:0
+	});
+	
+	lienzo.animate({
+		left:-300,
+        duration:350
+    });
+    
+	var ventana = Ti.UI.createView({
+		backgroundColor:"#9ab41f",
+		width:"80%",
+		height:"60%",
+		zIndex:1,
+		opacity:1
+	});
+	
+	var cerrar = Ti.UI.createButton({
+		backgroundImage:"/assets/cerrarpop.png",
+		width:41,
+		height:50,
+		zIndex:2,
+		top:85,
+		right:15
+	});
+
+	var etiqueta = Ti.UI.createView({
+		width:"95%",
+		height:200,
+		top:10,
+		height:60
+	});
+	
+
+///botones premio////////
+
+var premio1 = Ti.UI.createButton({
+		backgroundColor:'#37ade2',
+		zIndex:17,
+		top: 105,
+		width:"95%",
+		height:40,
+		title:'Premio por 100 puntos',
+		color:'#ffffff',
+		font:{fontFamily:'Minecrafter_3',fontSize:14},
+		textAlign:Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER
+	});
+
+premio1.addEventListener('touchstart',function(){
+		this.animate({
+			top:110,
+			duration:150
+		});
+	});
+premio1.addEventListener('touchend',function(){
+		this.animate({
+			top:105,
+			duration:150
+		});
+	});
+var premio2 = Ti.UI.createButton({
+		backgroundColor:'#37ade2',
+		zIndex:27,
+		top: 155,
+		width:"95%",
+		height:40,
+		title:'Premio por 200 puntos',
+		color:'#ffffff',
+		font:{fontFamily:'Minecrafter_3',fontSize:14},
+		textAlign:Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER
+	});
+
+premio2.addEventListener('touchstart',function(){
+		this.animate({
+			top:160,
+			duration:150
+		});
+	});
+premio2.addEventListener('touchend',function(){
+		this.animate({
+			top:155,
+			duration:150
+		});
+	});
+var premio3 = Ti.UI.createButton({
+		backgroundColor:'#37ade2',
+		zIndex:37,
+		top: 205,
+		width:"95%",
+		height:40,
+		title:'Premio por 450 puntos',
+		color:'#ffffff',
+		font:{fontFamily:'Minecrafter_3',fontSize:14},
+		textAlign:Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER
+	});
+
+premio3.addEventListener('touchstart',function(){
+		this.animate({
+			top:210,
+			duration:150
+		});
+	});
+premio3.addEventListener('touchend',function(){
+		this.animate({
+			top:205,
+			duration:150
+		});
+	});
+////// eventos botones premio /////
+premio1.addEventListener("click",function(){
+	canjear(1,popup);
+	premio2.hide();
+	premio3.hide();
+});
+premio2.addEventListener("click",function(){
+	canjear(2,popup);
+	premio1.hide();
+	premio3.hide();
+});
+premio3.addEventListener("click",function(){
+	canjear(3,popup);
+	premio2.hide();
+	premio1.hide();
+});
+	
+	
+	var textint = Ti.UI.createLabel({
+		width:"90%",
+		text:"Tienes estos premios disponibles:",
+		textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+		color:"#ffffff",
+		font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:24}
+	}); 
+	
+	var matrix = Ti.UI.create2DMatrix();
+	  matrix = matrix.rotate(360);
+	  matrix = matrix.scale(1, 1);
+	  var a = Ti.UI.createAnimation({
+	    transform : matrix,
+	    duration : 600,
+	    autoreverse : false,
+	    repeat : 1,
+	    center:true
+	  });
+	 ventana.animate(a);
+	 cerrar.animate({
+	 		opacity:1,
+	 		duration:350
+	 	});
+	 ventana.add(etiqueta);
+  	 etiqueta.add(textint);
+ 	 popup.setOpacity(0);	 
+ 	 popup.add(cerrar);	
+	 cerrar.getOpacity(0);
+	 popup.animate({
+		opacity:1,
+		duration:350
+	});
+
+	cerrar.addEventListener('touchend',function(){
+		this.animate({
+			top:85,
+			duration:150
+		});
+		
+	/*  Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
+		var sound = Ti.Media.createSound({url : '/sounds/tono7.mp3'});
+		sound.play();*/
+	});
+	cerrar.addEventListener('touchstart',function(){
+		this.animate({
+			top:95,
+			duration:150
+		});
+	});
+	
+	
+	cerrar.addEventListener('click',function(){
+		popup.animate({
+			opacity:0,
+			duration:350
+		},function(){
+			popup.hide();
+		});
+		 Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
+		var sound = Ti.Media.createSound({url : '/sounds/tono7.mp3'});
+		sound.play();
+	});
+	
+////// evetnos para los premios
+var minru = "http://productosalpha.com.pe/webservice/mispremios.php";
+var newdata = Ti.Network.createHTTPClient();
+	misparam = ({
+		"idmobile":Ti.Platform.id
+	});
+	newdata.onload = function(e){
+		var sdata = JSON.parse(this.responseText);
+		
+		if(sdata.mipremio==1){
+		  ventana.add(premio1);		
+		}	
+		if(sdata.mipremio2==2){
+		  ventana.add(premio2);	
+		}
+		if(sdata.mipremio3==3){
+	      ventana.add(premio3);		
+		}
+	};
+	 newdata.open("POST",minru);
+	 newdata.send(misparam);
+
+	popup.add(ventana);
+	 self.add(popup);
+});
+
+btn04.addEventListener('click',function(){
+////mecanica
+});
+btn05.addEventListener('click',function(){
+//// terminos y condiciones	
+});
+btn06.addEventListener('click',function(){
+//// salir
+var activity = Titanium.Android.currentActivity;
+        activity.finish();
+
+});
+
+    //contexto.add(texto1);
+    //contexto.add(btnFacebook);
+    //contexto.add(btnTwitter);
     nwin.add(btnPuntaje);
     nwin.add(btnSalir);
     nwin.add(barraFoot);
 	nwin.add(scroll);
+	nwin.add(menuGen);
 	scroll.add(btnRegistro);
 	scroll.add(btnIntento);
 	scroll.add(logoFooter);
 	nwin.add(boca);
-	scroll.add(contexto);
+	//.add(contexto);
 	scroll.add(titulo);
 	scroll.add(logoBottom);
 	lienzo.add(ctnBoton01);
@@ -579,3 +850,31 @@ btnFacebook.addEventListener('click',function(){
 	activityIndicator.hide();
 };
 module.exports = perdiste;
+
+function canjear(valor,popup){
+	var tinurl = "http://productosalpha.com.pe/webservice/canjepremio.php";
+	var parametros = ({
+		"idmobile":Ti.Platform.id,
+		"opcion" : valor
+	});
+	senData = Ti.Network.createHTTPClient();
+	senData.onload= function(){
+	      var getData = JSON.parse(this.responseText);
+	      if(getData.rpta=="ok"){
+	      	popup.animate({
+			opacity:0,
+			duration:350
+		},function(){
+			popup.hide();
+		});
+	      	alert("Recibiras un correo con los pasos a seguir");
+	      	
+	      }
+	      if(getData.rpta=="error"){
+	      	alert("Hubo un problema en el sistema intentelo mas tarde.");
+	      }
+	};
+	senData.open("POST",tinurl);
+	senData.send(parametros);
+}
+
