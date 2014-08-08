@@ -83,7 +83,7 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 });
 activityIndicator.show();
 ////EXTRAEMOS LA PREGUNTAS PARA EL NIVEL GENERADO
-	var uri = "http://productosalpha.com.pe/webservice/preguntas.php";
+	var uri = "http://productosalpha.com.pe/webservice/preguntas_rp.php";
 	 	 var parametros = {
 		'categoria' :Titanium.API.nivel,
 		'idmobile'  :Ti.Platform.id
@@ -93,7 +93,11 @@ activityIndicator.show();
 	 	 	 		
 	 	 	 	 if(this.status==200){
 	 	 	 	 	activityIndicator.hide();
+////////////////////////////////////////////////////////
+//*************** inicio de preguntas********************//
 								        var getdata = JSON.parse(this.responseText);
+								        
+		 if(getdata.rpta=="ok"){  
 								        Titanium.API.gl_imagen = getdata.imagen;
 								        Titanium.API.gl_incorrecta = getdata.incorrecta;	
 								        Titanium.API.gl_id = getdata.id;		        
@@ -292,10 +296,25 @@ activityIndicator.show();
 			    scroll.add(lblItem);
 			    scroll.add(listView);
 			    scroll.add(monstrito);
-			    
+
+////////////////////////////////////////////////////////
+//*************** fin de preguntas********************//
 			   }else{
-			   
-			   		}
+				   var alertDialog = Titanium.UI.createAlertDialog({
+					    title: 'Upss',
+					    message: 'Se terminaron las preguntas, canjea un premio para obtener mas premios.',
+					    buttonNames: ['Continuar'],
+					    cancel: 1
+					});
+			       alertDialog.show();
+				   return false;
+			   		 my_timer.stop();
+			   		 var Bienvenido = require("/ui/common/bienvenido");
+			   		    bienvenido = new Bienvenido();
+			   		    bienvenido.open();
+				  }
+				
+				}
 			},
 		     onerror : function(e) {
 		         Ti.API.debug("Perdiste Conexión a internet");

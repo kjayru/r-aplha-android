@@ -650,9 +650,9 @@ premio3.addEventListener("click",function(){
 			duration:150
 		});
 		
-	  Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
+	/*  Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
 		var sound = Ti.Media.createSound({url : '/sounds/tono7.mp3'});
-		sound.play();
+		sound.play();*/
 	});
 	cerrar.addEventListener('touchstart',function(){
 		this.animate({
@@ -669,9 +669,9 @@ premio3.addEventListener("click",function(){
 		},function(){
 			popup.hide();
 		});
-		 Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
+		 /*Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_AMBIENT;
 		var sound = Ti.Media.createSound({url : '/sounds/tono7.mp3'});
-		sound.play();
+		sound.play();*/
 	});
 	
 ////// evetnos para los premios
@@ -718,8 +718,8 @@ var activity = Titanium.Android.currentActivity;
 
 
 
-     //self.add(btnPuntaje);
-     //self.add(btnSalir);
+     self.add(btnPuntaje);
+     self.add(btnSalir);
      self.add(menuGen);
      self.add(lienzo);
 	 scrolls.add(logo);

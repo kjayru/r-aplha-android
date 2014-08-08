@@ -64,8 +64,10 @@ function formulario(){
 	  top: 180, 
 	  width: 200,
 	  height: 37,
+	  borderColor:"#ffffff",
+      borderWidth:4,
 	  backgroundColor:'#ffffff',
-	 font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
+	  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
 	  keyboardType:Ti.UI.KEYBOARD_DEFAULT,
 	  value:Titanium.API.nombres
 	});
@@ -83,6 +85,8 @@ function formulario(){
 	  top: 250, 
 	  width: 200, 
 	  height: 37,
+	  borderColor:"#ffffff",
+      borderWidth:4,
 	  backgroundColor:'#ffffff',
 	  keyboardType:Ti.UI.KEYBOARD_DEFAULT,
 	  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
@@ -102,6 +106,8 @@ function formulario(){
 	  top: 320, 
 	  width: 200, 
 	  height: 37,
+	  borderColor:"#ffffff",
+      borderWidth:4,
 	  backgroundColor:'#ffffff',
 	  keyboardType:Ti.UI.KEYBOARD_EMAIL,
 	  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
@@ -126,6 +132,46 @@ function formulario(){
 	  	value:false,
 	  	top: 365,
 	  	left:65
+	});
+
+
+txtNombre.addEventListener('touchend',function(){
+		this.animate({
+			backgroundColor:"#f7f8bc",
+			duration:150
+		});
+	});
+	txtNombre.addEventListener('touchstart',function(){
+		this.animate({
+			backgroundColor:"#ffffff",
+			duration:150
+		});
+	});
+
+txtApellido.addEventListener('touchend',function(){
+		this.animate({
+			backgroundColor:"#f7f8bc",
+			duration:150
+		});
+	});
+	txtApellido.addEventListener('touchstart',function(){
+		this.animate({
+			backgroundColor:"#ffffff",
+			duration:150
+		});
+	});
+	
+txtCorreo.addEventListener('touchend',function(){
+		this.animate({
+			backgroundColor:"#f7f8bc",
+			duration:150
+		});
+	});
+	txtCorreo.addEventListener('touchstart',function(){
+		this.animate({
+			backgroundColor:"#ffffff",
+			duration:150
+		});
 	});
 	
 	var lblTermino = Ti.UI.createLabel({
@@ -219,11 +265,7 @@ var activityIndicator = Ti.UI.createActivityIndicator({
 			
 	});
 	
-	self.addEventListener('click',function(e){
-	txtNombre.blur();
-	txtApellido.blur();
-	txtCorreo.blur();
-});
+
 	self.add(scroll);
 	scroll.add(btnTerminos);
 	scroll.add(logo);

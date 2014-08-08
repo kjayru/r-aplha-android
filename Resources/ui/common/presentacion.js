@@ -22,6 +22,7 @@ function presentacion(){
 		left:20,
 		zIndex:2
 	});
+	
 	var monstrito2 = Ti.UI.createImageView({
 		image:"/assets/mos3.png",
 		width:130,
@@ -30,6 +31,7 @@ function presentacion(){
 		right:10,
 		zIndex:3
 	});
+	
 	var logosa = Ti.UI.createImageView({
 		image:"/assets/alphaLOGO.png",
 		width:300,
@@ -38,6 +40,7 @@ function presentacion(){
 		left:30,
 		zIndex:21
 	});
+	
 	var contenedor = Ti.UI.createView({
 		backgroundColor:"#ffffff",
 		zIndex:2,
@@ -53,6 +56,7 @@ function presentacion(){
 		width:"90%",
 		color:"#000000"
 	});
+	
 	contenedor.add(texto);
    var style;
 	if (Ti.Platform.name === 'android'){
@@ -90,6 +94,18 @@ function presentacion(){
 		font:{fontFamily:'Minecrafter_3',fontSize:14},
 		textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
 		
+	});
+	nboton.addEventListener('touchend',function(){
+		this.animate({
+			top:380,
+			duration:150
+		});
+	});
+	nboton.addEventListener('touchstart',function(){
+		this.animate({
+			top:385,
+			duration:150
+		});
 	});
 	nboton.addEventListener('click',function(){				
 ///////// existe registro
@@ -168,7 +184,30 @@ function presentacion(){
 	scroll.add(monstrito1);
 	scroll.add(monstrito2);
 	self.add(scroll);
-	
+	contenedor.getOpacity(0);
+	monstrito1.getOpacity(0);
+	monstrito2.getOpacity(0);
+	logosa.getOpacity(0);
+	contenedor.animate({
+		delay:600,
+		opacity:1,
+		duration:350
+	});
+	monstrito1.animate({
+		delay:600,
+		opacity:1,
+		duration:350
+	});
+	monstrito2.animate({
+		delay:600,
+		opacity:1,
+		duration:350
+	});
+	logosa.animate({
+		delay:350,
+		opacity:1,
+		duration:350
+	});
 	return self;
 }
 module.exports = presentacion;

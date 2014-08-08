@@ -83,7 +83,7 @@ function opciones() {
 	});
 	
 	var btnRegistro = Ti.UI.createButton({
-		top: 380,
+		top: 410,
 		width:200,
 		height:37,
 		backgroundColor:'#37ade2',
@@ -98,7 +98,18 @@ function opciones() {
 		
 	});
 	
-	
+	btnRegistro.addEventListener('touchend',function(){
+		this.animate({
+			top:410,
+			duration:150
+		});
+	});
+	btnRegistro.addEventListener('touchstart',function(){
+		this.animate({
+			top:415,
+			duration:150
+		});
+	});
 	
 	var logoFooter = Ti.UI.createView({
 		backgroundImage:"/assets/logofooter.png",
@@ -120,14 +131,9 @@ function opciones() {
 
 
 btnFacebook.addEventListener('click',function(){
-	
-	
-	
 	var Formulario = require('/ui/common/formulario');
 		formulario = new Formulario();
-		formulario.open();	
-		
-		
+		formulario.open();		
 });
 btnRegistro.addEventListener('click',function(){
 	
@@ -152,16 +158,32 @@ var txtCorreo = Ti.UI.createTextField({
   top: 330, 
   width: 200, height: 40,
   backgroundColor:'#ffffff',
+  borderColor:"#ffffff",
+  borderWidth:4,
+  
   hintText:"Ingrese su correo",
-  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:24},
+  font:{fontFamily:'MYRIADPRO-REGULAR',fontSize:14},
   keyboardType:Ti.UI.KEYBOARD_EMAIL,
   zIndex:999
 });
 
-self.addEventListener('click',function(e){
+	txtCorreo.addEventListener('touchend',function(){
+		this.animate({
+			backgroundColor:"#f7f8bc",
+			duration:150
+		});
+	});
+	txtCorreo.addEventListener('touchstart',function(){
+		this.animate({
+			backgroundColor:"#ffffff",
+			duration:150
+		});
+	});
+
+/*self.addEventListener('click',function(e){
 	txtCorreo.blur();
 });
-
+*/
 var fb = require('facebook');
 fb.appid = 1397156940536791;
 fb.permissions = ['publish_stream'];

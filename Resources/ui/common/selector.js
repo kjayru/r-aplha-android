@@ -124,7 +124,18 @@ function selector() {
 		backgroundFocusedColor:'#000',
 		backgroundDisabledColor:'#ff0000'
 	});
-	
+	btnIngreso.addEventListener('touchend',function(){
+		this.animate({
+			top:470,
+			duration:150
+		});
+	});
+	btnIngreso.addEventListener('touchstart',function(){
+		this.animate({
+			top:475,
+			duration:150
+		});
+	});
 	var textTerminos = Ti.UI.createLabel({
 		top:527,
 		width:200,
