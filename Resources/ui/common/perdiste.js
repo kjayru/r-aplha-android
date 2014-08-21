@@ -572,9 +572,6 @@ btn01.addEventListener('click',function(){
   misPuntos.send(envios);
 });
 
-btn02.addEventListener('click',function(){
- ///aprende a jugar
-});
 
 btn03.addEventListener('click',function(){
 ////premios
@@ -798,11 +795,17 @@ var newdata = Ti.Network.createHTTPClient();
 	 self.add(popup);
 });
 
+btn02.addEventListener('click',function(){
+ ///aprende a jugar
+ Ti.Platform.openURL("http://productosalpha.com.pe/app/como-1.html");
+});
 btn04.addEventListener('click',function(){
 ////mecanica
+ Ti.Platform.openURL("http://productosalpha.com.pe/app/mecanica.html");
 });
 btn05.addEventListener('click',function(){
 //// terminos y condiciones	
+ Ti.Platform.openURL("http://productosalpha.com.pe/app/terminos.html");
 });
 btn06.addEventListener('click',function(){
 //// salir
