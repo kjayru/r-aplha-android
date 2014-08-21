@@ -13,10 +13,7 @@ function preguntas(){
 		orientationModes: [Ti.UI.PORTRAIT],
 		exitOnClose:true,
 		navBarHidden:true
-	});
-	
-	
-	
+	});	
 ///// footer botones
   var barraFoot = Ti.UI.createView({
   	  backgroundColor:"#003f88",
@@ -43,18 +40,26 @@ function preguntas(){
 		zIndex:11
 	});
 	var contador = Ti.UI.createLabel({
-		backgroundImage:'/assets/contador.png',
+		backgroundColor:'#b8d9ed',
 		width:'100%',
 		height:40,
-		top:0
+		top:0,
+		zIndex:1
 	});
-	
+	var bgcontador = Ti.UI.createLabel({
+		backgroundColor:'#28B1D4',
+		width:'100%',
+		height:40,
+		top:0,
+		zIndex:0
+	});
 	 var lblContador = Ti.UI.createLabel({
 		text:"",
 		color:'#ffffff',
 		font:{fontSize:28, fontFamily:'arial', fontWeight:'bold'},
 		right:5,
-		top:2
+		top:2,
+		zIndex:100
 	});
 
 	var style;
@@ -337,6 +342,7 @@ clientes.send(parametros);
   scroll.add(logoBottom);
   self.add(scroll);
   self.add(contador);
+   self.add(bgcontador);
   self.add(lblContador);
   self.add(activityIndicator);
   ////funciones de contador 30 seg
@@ -372,18 +378,13 @@ var countDown =  function( m , s, fn_tick, fn_end  ) {
 		}
 	};
 };	
-	
-
-
 
 var my_timer = new countDown(0,30, 
 		function() {
 			lblContador.text = my_timer.time.s;
-
 		},
 		function() {
 			activityIndicator.show();
-			
 			Titanium.API.incorrecta = "Se te acabo el tiempo, Sigue intentado.";
 			  url4='http://productosalpha.com.pe/webservice/intentos.php';
 					    var params4 = {
